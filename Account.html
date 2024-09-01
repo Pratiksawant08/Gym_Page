@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <style>
+        body {
+            background-image: url("gym3.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+        .topnav a {
+            float: left;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            display: block;
+        }
+        .topnav a:hover, .topnav a.active {
+            background-color: #575757;
+            color: #ffffff;
+        }
+        .account-details {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        .account-details h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .account-details p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .topnav {
+                padding: 10px;
+            }
+            .topnav a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topnav a {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .account-details p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">HOME</a>
+        <a href="login_prat.html">LOGIN</a>
+        <a href="Account.html" class="active">ACCOUNT</a>
+        <a href="update.html">UPDATE</a>
+    </div>
+
+    <div class="account-details">
+        <h2>Account Details</h2>
+        <p id="accountDetails">Loading...</p>
+    </div>
+
+    <script>
+        // Retrieve data from localStorage
+        const accountDetails = JSON.parse(localStorage.getItem('accountDetails'));
+
+        if (accountDetails) {
+            // Display account details
+            document.getElementById('accountDetails').innerHTML = `
+                <strong>Name:</strong> ${accountDetails.name} ${accountDetails.middleName ? accountDetails.middleName + ' ' : ''}${accountDetails.lastName}<br>
+                <strong>Mobile No:</strong> ${accountDetails.mobNo}<br>
+                <strong>Age:</strong> ${accountDetails.age}<br>
+                <strong>Gender:</strong> ${accountDetails.gender}<br>
+                <strong>Where You Live:</strong> ${accountDetails.place}<br>
+                <strong>Date:</strong> ${accountDetails.date}
+            `;
+        } else {
+            document.getElementById('accountDetails').innerHTML = 'No account details available.';
+        }
+    </script>
+</body>
+</html>

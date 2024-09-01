@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Account Details</title>
+    <style>
+        body {
+            background-image: url("gym3.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+        .topnav a {
+            float: left;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            display: block;
+        }
+        .topnav a:hover {
+            background-color: #575757;
+            color: #ffffff;
+        }
+        .update-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .update-section h2 {
+            text-align: center;
+            color: #333;
+        }
+        .update-section label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .update-section input, .update-section select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .update-section input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+        }
+        .update-section input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .update-section input[type="radio"] {
+            margin-right: 5px;
+        }
+        .update-section .radio-label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .topnav a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .update-section {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topnav a {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .update-section input, .update-section select {
+                width: calc(100% - 18px);
+                padding: 8px;
+            }
+            .update-section h2 {
+                font-size: 24px;
+            }
+            .update-section input[type="submit"] {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">HOME</a>
+        <a href="login_prat.html">LOGIN</a>
+        <a href="Account.html">ACCOUNT</a>
+        <a href="update.html" class="active">UPDATE</a>
+    </div>
+
+    <div class="update-section">
+        <h2>Update Account Details</h2>
+        <form id="updateForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="middle-name">Middle Name:</label>
+            <input type="text" id="middle-name" name="middle-name">
+            
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name">
+            
+            <label for="mob-no">Mobile No:</label>
+            <input type="number" id="mob-no" name="mob-no" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label>Gender:</label>
+            <label class="radio-label">
+                Male <input type="radio" name="gender" value="male" required>
+            </label>
+            <label class="radio-label">
+                Female <input type="radio" name="gender" value="female">
+            </label>
+            
+            <label for="place">Where You Live:</label>
+            <select name="place" id="place" required>
+                <option value="RATNAGIRI">RATNAGIRI</option>
+                <option value="RAJAPUR">RAJAPUR</option>
+                <option value="CHIPALUN">CHIPALUN</option>
+                <option value="PUNE">PUNE</option>
+            </select>
+            
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('updateForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const middleName = document.getElementById('middle-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const mobNo = document.getElementById('mob-no').value;
+            const age = document.getElementById('age').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const place = document.getElementById('place').value;
+            const date = document.getElementById('date').value;
+
+            // Save data to localStorage
+            localStorage.setItem('accountDetails', JSON.stringify({
+                name: name,
+                middleName: middleName,
+                lastName: lastName,
+                mobNo: mobNo,
+                age: age,
+                gender: gender,
+                place: place,
+                date: date
+            }));
+
+            // Redirect to account details page
+            window.location.href = 'Account.html';
+        });
+
+        // Populate the form with existing data if available
+        window.onload = function() {
+            const accountDetails = JSON.parse(localStorage.getItem('accountDetails'));
+            if (accountDetails) {
+                document.getElementById('name').value = accountDetails.name;
+                document.getElementById('middle-name').value = accountDetails.middleName;
+                document.getElementById('last-name').value = accountDetails.lastName;
+                document.getElementById('mob-no').value = accountDetails.mobNo;
+                document.getElementById('age').value = accountDetails.age;
+                document.querySelector(`input[name="gender"][value="${accountDetails.gender}"]`).checked = true;
+                document.getElementById('place').value = accountDetails.place;
+                document.getElementById('date').value = accountDetails.date;
+            }
+        }
+    </script>
+</body>
+</html>

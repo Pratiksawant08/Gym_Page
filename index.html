@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Gym</title>
+    <link rel="stylesheet" href="web.css">
+    <style>
+        body {
+            background-image: url("gym3.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+        .topnav a {
+            float: left;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            display: block;
+        }
+        .topnav a:hover {
+            background-color: #575757;
+            color: #ffffff;
+        }
+        .head {
+            text-align: center;
+            margin: 20px;
+        }
+        #hd {
+            font-size: 48px;
+            color: #8d4747;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        #one {
+            text-align: center;
+            font-size: 18px;
+            color: #ffffff;
+            margin: 20px;
+        }
+        .form-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-section h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-section input, .form-section select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-section input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-section input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .para {
+            text-align: center;
+            color: #e9e2e2;
+            margin: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .new {
+            text-align: center;
+            color: #333;
+            margin: 20px;
+        }
+        .table11 {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .table11 td {
+            padding: 10px;
+            vertical-align: top;
+        }
+        .table11 img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            background-color: #333; /* Dark background color for the footer */
+            color: #f4f4f4; /* Light color for text to contrast with dark background */
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            clear: both;
+            box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
+        }
+        .footer h4 {
+            color: #f4f4f4; /* Light color for headings */
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        .footer ul li a {
+            color: #f4f4f4; /* Light color for links */
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .footer ul li a:hover {
+            color: #007bff; /* Blue color on hover */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+            margin: 0 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .topnav a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            #hd {
+                font-size: 36px;
+            }
+            #one {
+                font-size: 16px;
+            }
+            .form-section {
+                margin: 10px;
+                padding: 10px;
+            }
+            .footer-col {
+                flex-basis: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hd {
+                font-size: 28px;
+            }
+            #one {
+                font-size: 14px;
+            }
+            .form-section input, .form-section select {
+                width: calc(100% - 18px);
+                padding: 8px;
+            }
+            .footer h4 {
+                font-size: 16px;
+            }
+            .footer ul li a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html" class="active">HOME</a>
+        <a href="login_prat.html">LOGIN</a>
+        <a href="Account.html">ACCOUNT</a>
+        <a href="home">DEALS</a>
+        <a href="home">PURCHASE</a>
+        <a href="admission_form.html">ADMISSION FORM</a>
+    </div>
+
+    <div class="head">
+        <h1 id="hd">FLEX GYM</h1>
+    </div>
+
+    <p id="one">Please submit the gym form for the admission process.</p>
+
+    <div class="para">
+        <p>Welcome to Our Gym: We're a fitness haven committed to transforming lives through exercise and well-being. <br>
+        <strong>1. Passionate Team:</strong> Our certified trainers are dedicated to helping you achieve your fitness goals with expertise. <br>
+        <strong>2. Inclusive Community:</strong> We embrace diversity and foster a supportive community where everyone, regardless of fitness level, feels welcome. <br>
+        <strong>3. Group Fitness:</strong> Join invigorating group classes led by experienced instructors, fostering camaraderie and motivation.</p>
+    </div>
+
+    <div class="new">
+        <p><strong>Here I share some gym equipment pictures for more references with gym equipment information:</strong></p>
+    </div>
+
+    <table class="table11">
+        <tr>
+            <td><img src="eqp11.jpeg" alt="Squat Power Rack"></td>
+            <td>
+                <p><strong>Squat Power Rack:</strong></p>
+                Affordable and occupies less space compared to a full rack. It is usually meant to help with squats and bench press but can also be used for various other exercises like shoulder press and push press.
+            </td>
+        </tr>
+        <tr>
+            <td><img src="eqp22.jpeg" alt="Barbell"></td>
+            <td>
+                <p><strong>Barbell:</strong></p>
+                One of the most versatile pieces of equipment in any gym. It helps maintain good posture and prevent body swaying during exercises. Suitable for various exercises.
+            </td>
+        </tr>
+        <tr>
+            <td><img src="eqp33.jpeg" alt="Weight Bench Machine"></td>
+            <td>
+                <p><strong>Weight Bench Machine:</strong></p>
+                A versatile must-have for any gym. Usually adjustable with three angles: incline, flat, and decline. It can be used for many exercises.
+            </td>
+        </tr>
+        <tr>
+            <td><img src="eqp44.jpeg" alt="Leg Press Machine"></td>
+            <td>
+                <p><strong>Leg Press Machine:</strong></p>
+                Works on the quadriceps, hamstrings, and calves simultaneously. Comes with a backrest, leg press, and adjustable seat. Correct exercise involves bending and extending the legs slowly.
+            </td>
+        </tr>
+        <tr>
+            <td><img src="eqp55.jpeg" alt="Leg Curl and Leg Extension"></td>
+            <td>
+                <p><strong>Leg Curl and Leg Extension:</strong></p>
+                Targets glutes, hamstrings, and quads. This dual-purpose machine helps in saving cost and space.
+            </td>
+        </tr>
+        <tr>
+            <td><img src="eqp66.jpeg" alt="Dumbbells"></td>
+            <td>
+                <p><strong>Dumbbells:</strong></p>
+                Used individually or in pairs. Handles are made of steel or iron, and weights/weight plates can be steel, iron, rubber, or cement. Usually adjustable.
+            </td>
+        </tr>
+    </table>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Membership</h4>
+                    <ul>
+                        <li><a href="#">Membership Offer</a></li>
+                        <li><a href="#">Membership Benefits</a></li>
+                        <li><a href="#">Corporate Membership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Club</h4>
+                    <ul>
+                        <li><a href="#">Club Finder</a></li>
+                        <li><a href="#">Club Facilities</a></li>
+                        <li><a href="#">Club Operating Hours</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Services</h4>
+                    <ul>
+                        <li><a href="#">Customer Area</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
